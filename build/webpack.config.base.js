@@ -1,4 +1,5 @@
 const path = require('path')
+const createVueLoaderOptions = require('./vue-loader.config')
 
 const config = {
   target: 'web',
@@ -11,8 +12,17 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.(vue|js|jsx)$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/,
+        // 预处理，对于这几种文件，使用真正的loader去加载它们之前，都会
+        // 通过我们的eslint-loader来给它处理一遍
+        enforce: 'pre'
+      },
+      {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
+        options: createVueLoaderOptions(true)
       },
       {
         test: /\.jsx$/,
