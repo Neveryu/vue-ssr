@@ -16,6 +16,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
+    "koa": "^2.5.3",
+    "koa-router": "^7.4.0",
     "vue": "2.5.13"
   },
   "devDependencies": {
@@ -41,6 +44,7 @@
     "file-loader": "1.1.6",
     "html-webpack-plugin": "2.30.1",
     "husky": "^0.14.3",
+    "memory-fs": "^0.4.1",
     "postcss-loader": "2.0.9",
     "rimraf": "^2.6.2",
     "style-loader": "0.19.1",
