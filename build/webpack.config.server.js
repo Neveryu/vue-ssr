@@ -30,6 +30,8 @@ config = merge(baseConfig, {
     filename: 'server-entry.js',
     path: path.join(__dirname, '../server-build')
   },
+  // 默认所有依赖的js文件都会打包到同一个js文件
+  // 不打包的js文件，用externals
   externals: Object.keys(require('../package.json').dependencies),
   module: {
     rules: [
