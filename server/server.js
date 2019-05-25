@@ -1,5 +1,6 @@
 const Koa = require('koa')
-const pageRouter = require('./routers/dev-ssr')
+
+// const pageRouter = require('./routers/dev-ssr')
 
 const app = new Koa()
 
@@ -19,6 +20,13 @@ app.use(async (ctx, next) => {
     }
   }
 })
+
+let pageRouter
+if(isDev) {
+  pageRouter = require('./routers/dev-ssr')
+} else {
+  pageRouter = require('./routers/ssr')
+}
 
 app.use(pageRouter.routes()).use(pageRouter.allowedMethods())
 
